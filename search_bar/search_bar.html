@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="search_bar.css">
+        <script src="search_bar.js"></script>
+    </head>
+    <body>
+        <div id="div_input_button_search">
+            <input 
+                id="input_button_search" 
+                type="search" 
+                onfocus="focus_search_bar_placeholder()" 
+                onfocusout="unfocus_search_bar_placeholder()" 
+                onsearch="onsearch()">
+            <img 
+                id="fa-search"
+                src="search-solid.svg" 
+                onclick="click_fa-search_button">
+        </div>
+    </body>
+</html>

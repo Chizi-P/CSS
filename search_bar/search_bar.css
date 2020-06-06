@@ -1,0 +1,100 @@
+/* search bar */
+/* 加入以下 HTML 和 JavaScript 使用.
+"HTML":
+<div id="div_input_button_search">
+    <input 
+        id="input_button_search" 
+        type="search" 
+        onfocus="focus_search_bar_placeholder()" 
+        onfocusout="unfocus_search_bar_placeholder()" 
+        onsearch="onsearch()">
+    <img 
+        id="fa-search"
+        src="../image/search-solid.svg" 
+        onclick="click_fa-search_button">
+</div>
+
+"JavaScript":
+function focus_search_bar_placeholder(){
+    document.getElementById('input_button_search').placeholder = "search..";
+}
+function unfocus_search_bar_placeholder(){
+    document.getElementById('input_button_search').placeholder = "";
+    document.getElementById('input_button_search').value = "";
+}
+*/
+
+/* Show set up */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* search_bar */
+#div_input_button_search{
+    position: relative;
+    height: 30px;
+    width: 200px;
+}
+
+#div_input_button_search:hover #fa-search{
+    opacity: 1;
+    filter: invert(0);
+}
+#div_input_button_search:hover #input_button_search{
+    opacity: 1;
+}
+
+#input_button_search{
+    position: absolute;
+    height: 30px;
+    width: 200px;
+    background-color: white;
+    border-radius: 20px;
+    opacity: 0;
+    cursor: default;
+    outline-style: none; /*去掉點擊時的邊框*/
+    border: none;
+    transition: opacity 0.4s;
+    padding-left: 15px;
+}
+
+#input_button_search::-webkit-search-cancel-button{ /*select x button in search input*/
+    -webkit-appearance: none;
+}
+
+#input_button_search:focus{
+    cursor: text;
+    opacity: 1;
+}
+
+#fa-search{
+    position: absolute;
+    width: 15px; /*改這個值需要改left和top才能置中*/
+    left: 46.25%;
+    top: 25%;
+    background-color: rgba(255, 255, 255, 0);
+    opacity: 0.5;
+    filter: invert(1);
+    transition: 0.4s;
+    pointer-events: none; /*穿透*/
+}
+
+#input_button_search:focus + #fa-search{
+    opacity: 0.6;
+    filter: invert(0);
+    left: 85%;
+    pointer-events: auto;
+}
+
+#input_button_search:focus + #fa-search:hover{
+    opacity: 1;
+}
+
+
+/*END search bar*/

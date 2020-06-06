@@ -1,0 +1,183 @@
+/*你可以開啟以下設定查看具體作法,「*」代表全部元素.*/
+/* *{
+    outline: 1px solid green;
+} */
+
+
+/* Show set up */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* credit_card */
+/* 作為整體的容器 */
+#credit_card{
+    position: relative;
+    width: 255pt;
+    height: 153pt;
+}
+
+#space{
+    width: 255pt;
+    height: 153pt;
+    perspective: 600px;
+    position: absolute;
+}
+
+/*模擬自發光陰影*/
+.glow{
+    filter: blur(20px); /*模糊*/
+}
+
+.card_body{
+    width: 255pt;
+    height: 153pt;
+    background-color: rgb(245, 245, 245);   /*同時套用gradient-color的class, 這設定會被漸變背景覆蓋*/
+    border-radius: 15px;
+    position: absolute;
+    transform-style: preserve-3d;   /*讓子元素擁有這個元素的transform轉換(這裏沒有使用到)*/
+    transform: translateZ(-80px);   /*向Z軸移動*/
+    z-index: -1;
+    transition-property: all;   /*全部產生動畫*/
+    transition-duration: 0.3s;  /*動畫秒數*/
+}
+
+/*漸變*/
+.gradient-color-1{
+    background: 
+    radial-gradient(circle at 50% 0,
+        rgba(255,0,0,.5),
+        rgba(255,0,0,0) 90%),
+    radial-gradient(circle at 100% 0,
+        rgba(0,0,255,.5),
+        rgba(0,0,255,0) 70%),
+    radial-gradient(circle at 50% 100%,
+        rgba(0,0,255,.5),
+        rgba(0,0,255,0 ) 90%),
+    radial-gradient(circle at 0 100%,
+        rgba(255,0,0,.5),
+        rgba(255,0,0,0) 70%) white;
+}
+
+
+
+/*column sensor*/
+.column_sensor{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto; /*10 auto*/
+    list-style-type: none;
+    width: 255pt;
+    height: 153pt;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+.column_sensor li{
+    z-index: 1;
+}
+
+/* 凸顯 */
+/* 滑鼠接觸li1-10時, .card_body做改變 */
+#li1:hover ~ #space > .card_body{
+    transform: rotateY(36deg);
+    box-shadow: 16px 8px 48px -8px lightgray;
+} 
+#li2:hover ~ #space > .card_body{
+    transform: rotateY(27deg);
+    box-shadow: 12px 8px 56px -6px lightgray;
+} 
+#li3:hover ~ #space > .card_body{
+    transform: rotateY(18deg);
+    box-shadow: 8px 8px 64px -4px lightgray;
+} 
+#li4:hover ~ #space > .card_body{
+    transform: rotateY(9deg);
+    box-shadow: 4px 8px 72px -2px lightgray;
+} 
+#li5:hover ~ #space > .card_body{
+    transform: rotateY(0deg);
+    box-shadow: 0px 8px 72px 0px lightgray;
+} 
+#li6:hover ~ #space > .card_body{
+    transform: rotateY(0deg);
+    box-shadow: 0px 8px 72px 0px lightgray;
+} 
+#li7:hover ~ #space > .card_body{
+    transform: rotateY(-9deg);
+    box-shadow: -4px 8px 72px -2px lightgray;
+} 
+#li8:hover ~ #space > .card_body{
+    transform: rotateY(-18deg);
+    box-shadow: -8px 8px 64px -4px lightgray;
+}
+#li9:hover ~ #space > .card_body{
+    transform: rotateY(-27deg);
+    box-shadow: -12px 8px 56px -6px lightgray;
+}
+#li10:hover ~ #space > .card_body{
+    transform: rotateY(-36deg);
+    box-shadow: -16px 8px 48px -8px lightgray;
+} 
+
+
+
+#card-issuer{
+    position: absolute;
+    font-size: 20px;
+    left: 26px;
+    top: 26px;
+    color: white;
+    letter-spacing: 5px;
+}
+
+#card-number{
+    position: absolute;
+    font-size: 20px;
+    left: 26px;
+    bottom: 90px;
+    color: white;
+    letter-spacing: 4px;
+}
+
+#valid-thru-text{
+    position: absolute;
+    font-size: 10px;
+    left: 25px;
+    bottom: 45px;
+    color: white;
+}
+
+#card-valid-thru{
+    position: absolute;
+    font-size: 15px;
+    left: 70px;
+    bottom: 50px;
+    color: white;
+    letter-spacing: 4px;
+}
+
+#card-holder{
+    position: absolute;
+    font-size: 20px;
+    left: 25px;
+    bottom: 15px;
+    color: white;
+    letter-spacing: 4px;
+}
+
+.card_body .fa-cc-visa{
+    position: absolute;
+    font-size: 50px;
+    right: 20px;
+    bottom: 15px;
+    color: rgba(255, 255, 255, 95%);
+}
