@@ -5,4 +5,4 @@ search bar
 [展示](https://chizi-p.github.io/CSS/search_bar/search_bar.html)
 
 credit card
-[展示](https://chizi-p.github.io/CSS/search_bar/credit_card.html)
+[展示](https://chizi-p.github.io/CSS/credit_card/credit_card.html)
